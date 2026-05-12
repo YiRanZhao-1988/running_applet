@@ -1,15 +1,13 @@
 <!--
-  训练 Tab：任务执行导向布局 — 激励语 / 周日历 / 今日课表 / 统计。
+  训练 Tab：文案与数据均来自 store 绑定字段。
 -->
 <view class="u-tab-page page--training">
   <scroll-view class="u-tab-page__scroll" scroll-y>
     <view class="u-px-page training-page__content">
       <view class="training-page__hero u-mb-lg">
-        <text class="training-page__hero-kicker">Today</text>
-        <text class="training-page__hero-title">执行今天的训练</text>
-        <text class="training-page__hero-sub">
-          一次只专注一件事：完成课表，然后把它放下。
-        </text>
+        <text class="training-page__hero-kicker">{{trainingHero.kicker}}</text>
+        <text class="training-page__hero-title">{{trainingHero.title}}</text>
+        <text class="training-page__hero-sub">{{trainingHero.subtitle}}</text>
       </view>
 
       <view class="u-mb-lg">
@@ -18,27 +16,27 @@
 
       <ui-section showHeader="{{true}}">
         <view slot="header">
-          <ui-title variant="section" text="本周" />
+          <ui-title variant="section" text="{{trainingSections.week}}" />
         </view>
         <week-calendar
           days="{{weekDays}}"
           week-range-text="{{weekRangeText}}"
-          bind:prev="onWeekPrev"
-          bind:next="onWeekNext"
+          bind:prev="calendarWeekPrev"
+          bind:next="calendarWeekNext"
           bind:selectday="onSelectDay"
         />
       </ui-section>
 
       <ui-section showHeader="{{true}}">
         <view slot="header">
-          <ui-title variant="section" text="今日课表" />
+          <ui-title variant="section" text="{{trainingSections.today}}" />
         </view>
         <training-card session="{{todaySession}}" />
       </ui-section>
 
       <ui-section showHeader="{{true}}">
         <view slot="header">
-          <ui-title variant="section" text="训练统计" />
+          <ui-title variant="section" text="{{trainingSections.stats}}" />
         </view>
         <view class="training-stats u-row u-row-gap-md">
           <ui-stat-block

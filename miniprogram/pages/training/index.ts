@@ -1,59 +1,40 @@
 /**
- * 训练首页：周历切换、今日课表、激励语轮播、底部统计（全部本地 mock）。
+ * 训练首页：数据与交互全部由 trainingStore 驱动。
  */
-import {
-  buildWeekDays,
-  buildWeekRangeLabel,
-  getTodaySessionMock,
-  getTrainingStatsMock,
-  MOTIVATION_LINES,
-} from "../../mocks/training-home";
-import type { TodaySessionVM } from "../../types/training";
+import { createStoreBindings } from "mobx-miniprogram-bindings";
 import { ROUTES } from "../../constants/routes";
-import { createPageOptions } from "../../utils/page-options";
+import { trainingStore } from "../../store";
 
-type StatChip = { label: string; value: string };
+type Bindings = ReturnType<typeof createStoreBindings>;
 
-Page(
-  createPageOptions({
-    data: {
-      weekOffset: 0,
-      weekDays: buildWeekDays(0),
-      weekRangeText: buildWeekRangeLabel(0),
-      todaySession: getTodaySessionMock(),
-      motivationLines: MOTIVATION_LINES,
-      stats: getTrainingStatsMock() as StatChip[],
-    },
+Page({
+  storeBindings: null as unknown as Bindings,
 
-    onShow() {
-      /** 回到前台时刷新「今日课表」，避免跨日仍在小程序中停留时的 stale UI（仍为 mock）。 */
-      this.setData({ todaySession: getTodaySessionMock() });
-    },
+  onLoad() {
+    this.storeBindings = createStoreBindings(this, {
+      store: trainingStore,
+      fields: {
+        weekDays: "trainingWeekDays",
+        weekRangeText: "weekRangeText",
+        todaySession: "todaySession",
+        motivationLines: "motivationLines",
+        stats: "trainingStats",
+        trainingHero: "trainingHero",
+        trainingSections: "trainingSections",
+      },
+      actions: ["calendarWeekPrev", "calendarWeekNext"],
+    });
+  },
 
-    onWeekPrev() {
-      const weekOffset = this.data.weekOffset - 1;
-      this.setData({
-        weekOffset,
-        weekDays: buildWeekDays(weekOffset),
-        weekRangeText: buildWeekRangeLabel(weekOffset),
-      });
-    },
+  onUnload() {
+    this.storeBindings.destroyStoreBindings();
+  },
 
-    onWeekNext() {
-      const weekOffset = this.data.weekOffset + 1;
-      this.setData({
-        weekOffset,
-        weekDays: buildWeekDays(weekOffset),
-        weekRangeText: buildWeekRangeLabel(weekOffset),
-      });
-    },
-
-    onSelectDay(e: { detail?: { dateKey?: string } }) {
-      const dateKey = e.detail?.dateKey;
-      if (!dateKey) return;
-      wx.navigateTo({
-        url: `${ROUTES.dayDetail}?date=${encodeURIComponent(dateKey)}`,
-      });
-    },
-  }),
-);
+  onSelectDay(e: { detail?: { dateKey?: string } }) {
+    const dateKey = e.detail?.dateKey;
+    if (!dateKey) return;
+    wx.navigateTo({
+      url: `${ROUTES.dayDetail}?date=${encodeURIComponent(dateKey)}`,
+    });
+  },
+});

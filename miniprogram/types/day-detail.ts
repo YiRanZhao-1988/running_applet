@@ -1,12 +1,9 @@
 /**
- * 日程详情页：单日多条训练 Todo、完成态与主观反馈（本地缓存）。
+ * 日程详情组件用视图类型（与 store 派生的 todo 行对齐）。
  */
+export type { TrainingFeedback } from "./domain";
 
-/** 训练反馈选项（存储为枚举值，展示文案在页面层映射） */
-export type TrainingFeedback = "easy" | "normal" | "stressed" | "tired";
-
-/** 服务端 / mock 下发的 todo 模板（不含运行时完成态） */
-export interface DayTodoTemplate {
+export interface DayTodoViewModel {
   id: string;
   name: string;
   distanceLabel: string;
@@ -14,28 +11,8 @@ export interface DayTodoTemplate {
   hrLabel: string;
   durationLabel: string;
   note: string;
-}
-
-/** 页面实际渲染的单条 todo（合并缓存后） */
-export interface DayTodoViewModel extends DayTodoTemplate {
   done: boolean;
-  feedback?: TrainingFeedback;
-  /** 短时完成动效类名切换用 */
+  feedback?: import("./domain").TrainingFeedback;
+  feedbackLabel?: string;
   animating?: boolean;
-}
-
-export interface DayDetailStoreShape {
-  /** dateKey -> itemId -> 状态 */
-  byDate: Record<
-    string,
-    {
-      items: Record<
-        string,
-        {
-          done: boolean;
-          feedback?: TrainingFeedback;
-        }
-      >;
-    }
-  >;
 }

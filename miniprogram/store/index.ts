@@ -1,11 +1,23 @@
 /**
- * 全局状态管理预留目录（MobX 等）。
- *
- * 推荐接入方式（后续实施，当前不安装依赖）：
- * - mobx + mobx-miniprogram-bindings（或社区方案）将 store 与 Page/Component 绑定
- * - 每个 store 单独文件，避免单文件过大；在此 index 中聚合导出
- *
- * 当前不导出任何 store，不编写逻辑。
+ * 全局 MobX Store 入口：统一导出与本地初始化（后续可在此处挂接云同步）。
  */
+import { createSeedPlan } from "../mock/seed-plan";
+import {
+  loadPersistedSnapshot,
+  savePersistedSnapshot,
+} from "../services/plan-repository";
+import { trainingStore } from "./training-store";
 
-export {};
+export { trainingStore } from "./training-store";
+
+/** 冷启动：优先恢复本地快照，否则写入 seed 计划。 */
+export function initTrainingStore(): void {
+  const snap = loadPersistedSnapshot();
+  if (snap?.plan) {
+    trainingStore.replacePlanAndLogs(snap.plan, snap.logs ?? []);
+    return;
+  }
+  const seed = createSeedPlan();
+  trainingStore.replacePlanAndLogs(seed, []);
+  savePersistedSnapshot(seed, []);
+}

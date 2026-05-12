@@ -1,19 +1,25 @@
 /**
- * AI 计划（Tab）：AI 生成/调整训练计划的入口骨架。
- * 无数据、无业务逻辑。
+ * AI 计划 Tab：展示内容由 store 暴露的 mock 结构驱动。
  */
-import { createPageOptions } from "../../utils/page-options";
+import { createStoreBindings } from "mobx-miniprogram-bindings";
+import { trainingStore } from "../../store";
 
-Page(
-  createPageOptions({
-    data: {},
+type Bindings = ReturnType<typeof createStoreBindings>;
 
-    onLoad() {},
+Page({
+  storeBindings: null as unknown as Bindings,
 
-    onShow() {},
+  onLoad() {
+    this.storeBindings = createStoreBindings(this, {
+      store: trainingStore,
+      fields: {
+        aiPage: "aiPlanPage",
+      },
+      actions: [],
+    });
+  },
 
-    onReady() {},
-
-    onUnload() {},
-  }),
-);
+  onUnload() {
+    this.storeBindings.destroyStoreBindings();
+  },
+});

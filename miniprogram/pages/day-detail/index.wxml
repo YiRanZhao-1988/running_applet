@@ -1,15 +1,15 @@
 <view class="u-tab-page page--day-detail">
   <scroll-view class="u-tab-page__scroll" scroll-y>
-    <view class="u-px-page day-detail" wx:if="{{pageMeta}}">
+    <view class="u-px-page day-detail" wx:if="{{hasContent}}">
       <view class="day-detail__hero">
-        <text class="day-detail__kicker">Session</text>
-        <text class="day-detail__date-line">{{pageMeta.dateHeader}}</text>
-        <text class="day-detail__type">{{pageMeta.dayTypeLabel}}</text>
+        <text class="day-detail__kicker">{{detailCopy.kicker}}</text>
+        <text class="day-detail__date-line">{{dateHeaderLine}}</text>
+        <text class="day-detail__type">{{dayTypeLabel}}</text>
       </view>
 
       <view class="day-detail__section-head">
-        <text class="day-detail__section-title">训练内容</text>
-        <text class="day-detail__section-sub">逐项完成，数据仅保存在本机</text>
+        <text class="day-detail__section-title">{{detailCopy.sectionTitle}}</text>
+        <text class="day-detail__section-sub">{{detailCopy.sectionSub}}</text>
       </view>
 
       <view class="day-detail__list">
@@ -29,11 +29,10 @@
     </view>
   </scroll-view>
 
-  <!-- 训练反馈：轻量遮罩 + 列表选项（无夸张动效） -->
-  <view class="fb-mask" wx:if="{{showFeedback}}" catchtap="onCloseFeedback">
+  <view class="fb-mask" wx:if="{{showFeedback}}" catchtap="closeFeedbackModal">
     <view class="fb-sheet" catchtap="onSheetTouch">
-      <text class="fb-title">训练反馈</text>
-      <text class="fb-desc">这一刻的身体感受，用于你自己回顾节奏。</text>
+      <text class="fb-title">{{detailCopy.feedbackTitle}}</text>
+      <text class="fb-desc">{{detailCopy.feedbackDesc}}</text>
 
       <view class="fb-options">
         <view
@@ -49,8 +48,8 @@
         </view>
       </view>
 
-      <view class="fb-later" hover-class="fb-later--hover" hover-stay-time="60" bindtap="onCloseFeedback">
-        <text class="fb-later__text">稍后再说</text>
+      <view class="fb-later" hover-class="fb-later--hover" hover-stay-time="60" bindtap="closeFeedbackModal">
+        <text class="fb-later__text">{{detailCopy.laterLabel}}</text>
       </view>
     </view>
   </view>

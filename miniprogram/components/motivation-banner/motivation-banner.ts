@@ -1,8 +1,8 @@
 /**
  * 今日激励语：按间隔随机切换，语气克制、强调长期一致性。
- * 若父级传入 messages 为空，则回退到 mocks/training-home 预置文案。
+ * 若父级传入 messages 为空，则回退到 mock/motivation-lines 预置文案。
  */
-import { MOTIVATION_LINES } from "../../mocks/training-home";
+import { MOTIVATION_LINES } from "../../mock/motivation-lines";
 
 const TIMER_KEY = "__motivationTimerId";
 

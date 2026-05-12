@@ -1,22 +1,23 @@
 <!--
-  AI 计划 Tab：分析 / 上传 / 语音 + 主行动按钮骨架；无后端与权限逻辑。
+  AI 计划 Tab：标题与入口列表来自 aiPlanPage（mock）。
 -->
 <view class="u-tab-page page--ai-plan">
   <scroll-view class="u-tab-page__scroll" scroll-y>
     <view class="u-px-page u-py-lg u-stack-md">
       <view>
-        <ui-title variant="page" text="计划输入" />
-        <view class="u-subtitle">用文字、图片或语音描述目标节奏与健康约束</view>
+        <ui-title variant="page" text="{{aiPage.title}}" />
+        <view class="u-subtitle">{{aiPage.subtitle}}</view>
       </view>
 
-      <ui-action-entry title="AI 分析" description="阅读当前计划结构并给出调整建议（占位）" />
-
-      <ui-action-entry title="图片上传" description="选择课表或记录截图以供结构化识别（占位）" />
-
-      <ui-action-entry title="语音输入" description="口述关键变量，例如可训练日与身体感受（占位）" />
+      <ui-action-entry
+        wx:for="{{aiPage.entries}}"
+        wx:key="id"
+        title="{{item.title}}"
+        description="{{item.description}}"
+      />
 
       <view class="u-mt-sm">
-        <view class="u-btn u-btn--primary u-btn--block">AI 生成计划</view>
+        <view class="u-btn u-btn--primary u-btn--block">{{aiPage.primaryCta}}</view>
       </view>
 
       <view class="u-py-lg" />

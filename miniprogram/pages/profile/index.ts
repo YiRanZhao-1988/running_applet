@@ -1,19 +1,27 @@
 /**
- * 我的（Tab）：账号与个人设置入口骨架。
- * 无数据、无业务逻辑。
+ * 我的 Tab：展示数据由 trainingStore 与 mock 结构驱动。
  */
-import { createPageOptions } from "../../utils/page-options";
+import { createStoreBindings } from "mobx-miniprogram-bindings";
+import { trainingStore } from "../../store";
 
-Page(
-  createPageOptions({
-    data: {},
+type Bindings = ReturnType<typeof createStoreBindings>;
 
-    onLoad() {},
+Page({
+  storeBindings: null as unknown as Bindings,
 
-    onShow() {},
+  onLoad() {
+    this.storeBindings = createStoreBindings(this, {
+      store: trainingStore,
+      fields: {
+        profilePage: "profilePageModel",
+        profileStats: "profileStatRows",
+        profileSettingRows: "profileSettingRows",
+      },
+      actions: [],
+    });
+  },
 
-    onReady() {},
-
-    onUnload() {},
-  }),
-);
+  onUnload() {
+    this.storeBindings.destroyStoreBindings();
+  },
+});

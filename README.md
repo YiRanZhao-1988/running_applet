@@ -6,8 +6,10 @@
 
 - 微信原生小程序（`miniprogramRoot`: `miniprogram/`）
 - TypeScript（`tsconfig.json` + `miniprogram-api-typings`）
+- **全局状态**：[`mobx-miniprogram`](https://github.com/wechat-miniprogram/mobx-miniprogram) + `mobx-miniprogram-bindings`；训练计划、勾选与反馈等由 `miniprogram/store/training-store.ts` 集中管理，页面通过 `createStoreBindings` 绑定。
 - [TDesign 小程序组件库](https://tdesign.tencent.com/miniprogram/overview)（npm 依赖，按需/全局可在 `app.json` 与各页 `usingComponents` 中配置）
-- 预留：`store/`（MobX 等）、`services/cloud.ts`（云开发）
+- 持久化：`miniprogram/services/plan-repository.ts` 封装本地快照，存储键 `running_training_core_v1`；后续可替换为云数据库实现同一接口。
+- 预留：`services/cloud.ts`（云开发）
 
 ## 环境要求
 
@@ -49,9 +51,9 @@
 │   ├── pages/                   # 页面：训练、AI 计划、我的、日程详情、登录等
 │   ├── components/              # 通用 UI 与业务相关组件（week-calendar、training-card 等）
 │   ├── styles/                  # 全局样式分片：theme、spacing、card、button 等
-│   ├── mocks/                   # 本地演示数据（无后端时）
-│   ├── services/                # 封装：如 day-detail 本地存储
-│   ├── store/                   # 全局状态预留
+│   ├── mock/                    # 种子计划与文案（仅数据与展示 copy，无业务逻辑）
+│   ├── services/                # 日期工具、计划查找、本地/未来云端 plan-repository、统计派生等
+│   ├── store/                   # `initTrainingStore`、`trainingStore`（MobX）
 │   ├── types/                   # TS 类型
 │   ├── constants/               # 路由等常量
 │   └── assets/                  # 如图标等资源
@@ -63,8 +65,9 @@
 
 ## 功能要点（当前实现）
 
-- **训练首页**：周日历切换、今日课表卡片、激励语轮播、统计区（部分为本地 mock）。
-- **日程详情**（`pages/day-detail`）：单日多条训练 Todo、勾选完成、简短完成动效、训练反馈弹窗；完成态与反馈写入 **本地缓存**（键名见 `services/day-detail-storage.ts`）。
+- **启动**：`app.ts` 的 `onLaunch` 调用 `initTrainingStore()`，从本地读取快照，若无则写入 `mock/seed-plan` 种子并落盘。
+- **训练首页**：周日历切换、今日课表、激励语、统计区等均从 `trainingStore` 派生；文案与区块结构来自 `mock/training-page-copy` 等。
+- **日程详情**（`pages/day-detail`）：Todo 勾选、反馈弹窗等直接改 `trainingStore` 并经由 `plan-repository` 持久化（与首页共用同一数据源）。
 
 ## Tab 与路由
 
@@ -76,7 +79,7 @@
 ## 设计与约定
 
 - 视觉：灰白、低饱和、卡片与留白为主；复杂渐变与高社交化 UI 刻意避免。
-- 业务数据：当前以 **mock + 本地存储** 为主；接入云开发后可逐步替换 `mocks/` 与存储实现。
+- 业务数据：域模型见 `types/domain.ts`；演示与文案集中在 `mock/`；写入走 `plan-repository`，便于日后换云数据库而不改页面绑定。
 
 ## 许可证
 
