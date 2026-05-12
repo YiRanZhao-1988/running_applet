@@ -1,0 +1,84 @@
+/* 周计划：表格式节奏，负荷标用灰阶区分而非霓虹 */
+.ai-week__range {
+  display: block;
+  font-size: 24rpx;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-md);
+}
+
+.ai-week__body {
+  border-radius: var(--radius-control);
+  border: 1rpx solid var(--border-soft);
+  overflow: hidden;
+  background-color: var(--surface);
+}
+
+.ai-week__row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: var(--space-md);
+  border-bottom: 1rpx solid var(--divider);
+}
+
+.ai-week__row:last-child {
+  border-bottom: none;
+}
+
+.ai-week__wd {
+  width: 88rpx;
+  flex-shrink: 0;
+  font-size: 26rpx;
+  font-weight: 500;
+  color: var(--text-primary);
+  padding-top: 4rpx;
+}
+
+.ai-week__core {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+  padding-right: var(--space-sm);
+}
+
+.ai-week__focus {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.ai-week__detail {
+  font-size: 24rpx;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.ai-week__tag {
+  align-self: flex-start;
+  min-width: 44rpx;
+  text-align: center;
+  font-size: 22rpx;
+  line-height: 1.4;
+  padding: 6rpx 14rpx;
+  border-radius: var(--radius-pill);
+  border: 1rpx solid var(--border-soft);
+  color: var(--text-secondary);
+  background-color: var(--surface-elevated);
+}
+
+.ai-week__tag--low {
+  color: #5c5c5c;
+  background-color: #f3f3f4;
+}
+
+.ai-week__tag--mid {
+  color: #4a4a4a;
+  background-color: #eaeaeb;
+}
+
+.ai-week__tag--high {
+  color: #3a3a3a;
+  background-color: #e0e0e2;
+}

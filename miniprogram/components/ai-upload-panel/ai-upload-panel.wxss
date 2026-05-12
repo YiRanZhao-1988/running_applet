@@ -1,0 +1,100 @@
+/* 上传区：文档化、偏训练记录台账，避免科技感装饰 */
+.ai-upload__sources {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-bottom: var(--space-sm);
+}
+
+.ai-upload__chip {
+  font-size: 22rpx;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  padding: 8rpx 16rpx;
+  border-radius: var(--radius-pill);
+  border: 1rpx solid var(--border-soft);
+  background-color: var(--surface-elevated);
+}
+
+.ai-upload__hint {
+  display: block;
+  font-size: 26rpx;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.ai-upload__row {
+  display: flex;
+  flex-direction: row;
+}
+
+.ai-upload__btn {
+  flex: 1;
+  min-height: 80rpx;
+  line-height: 80rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--radius-control);
+  border: 1rpx solid var(--border-soft);
+  background-color: var(--surface-elevated);
+  color: var(--text-primary);
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.ai-upload__btn::after {
+  border: none;
+}
+
+.ai-upload__btn--hover {
+  background-color: var(--divider);
+}
+
+.ai-upload__preview {
+  margin-top: var(--space-md);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm);
+  border-radius: var(--radius-control);
+  border: 1rpx solid var(--border-soft);
+  background-color: var(--surface-elevated);
+}
+
+.ai-upload__thumb {
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 12rpx;
+  background-color: var(--divider);
+  flex-shrink: 0;
+}
+
+.ai-upload__preview-meta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.ai-upload__preview-label {
+  font-size: 22rpx;
+  color: var(--text-tertiary);
+}
+
+.ai-upload__preview-name {
+  font-size: 24rpx;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ai-upload__clear {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  padding: 8rpx 12rpx;
+}

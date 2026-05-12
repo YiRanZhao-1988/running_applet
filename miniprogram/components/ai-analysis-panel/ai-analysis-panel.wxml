@@ -1,0 +1,26 @@
+<view class="ai-an" wx:if="{{analysis}}">
+  <text class="ai-an__ctx">{{analysis.contextLine}}</text>
+  <view class="ai-an__list">
+    <view
+      class="ai-an__item"
+      wx:for="{{analysis.highlights}}"
+      wx:key="id"
+    >
+      <view class="ai-an__bullet" />
+      <text class="ai-an__text">{{item.text}}</text>
+    </view>
+  </view>
+  <view class="ai-an__metrics">
+    <view
+      class="ai-an__metric"
+      wx:for="{{analysis.metrics}}"
+      wx:key="id"
+    >
+      <text class="ai-an__metric-label">{{item.label}}</text>
+      <text class="ai-an__metric-value">{{item.value}}</text>
+    </view>
+  </view>
+  <view class="ai-an__caution" wx:if="{{analysis.caution}}">
+    <text class="ai-an__caution-text">{{analysis.caution}}</text>
+  </view>
+</view>

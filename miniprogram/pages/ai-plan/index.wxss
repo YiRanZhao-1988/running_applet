@@ -1,6 +1,18 @@
 /**
- * AI 计划页：布局主要依赖全局 spacing / button；此处仅保留页面作用域钩子。
+ * AI 计划页：区段间距随全局 section；此处只管页头气质。
  */
 .page--ai-plan {
   box-sizing: border-box;
+}
+
+.ai-plan__subtitle {
+  margin-top: var(--space-sm);
+}
+
+.ai-plan__demo {
+  display: block;
+  margin-top: var(--space-md);
+  font-size: 22rpx;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
 }

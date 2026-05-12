@@ -1,0 +1,23 @@
+<view class="ai-upload" wx:if="{{upload}}">
+  <view class="ai-upload__sources">
+    <text
+      class="ai-upload__chip"
+      wx:for="{{upload.sources}}"
+      wx:key="id"
+    >{{item.label}}</text>
+  </view>
+  <text class="ai-upload__hint">{{upload.hint}}</text>
+  <view class="ai-upload__row">
+    <button class="ai-upload__btn" bindtap="onChooseImage" hover-class="ai-upload__btn--hover">
+      {{upload.chooseLabel}}
+    </button>
+  </view>
+  <view class="ai-upload__preview" wx:if="{{previewUrl}}">
+    <image class="ai-upload__thumb" src="{{previewUrl}}" mode="aspectFill" />
+    <view class="ai-upload__preview-meta">
+      <text class="ai-upload__preview-label">已选</text>
+      <text class="ai-upload__preview-name">{{fileName}}</text>
+    </view>
+    <text class="ai-upload__clear" bindtap="onClear">清除</text>
+  </view>
+</view>

@@ -1,0 +1,39 @@
+.ai-voice__hint {
+  display: block;
+  font-size: 26rpx;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.ai-voice__pad {
+  min-height: 88rpx;
+  border-radius: var(--radius-control);
+  border: 1rpx dashed var(--border-soft);
+  background-color: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-md);
+  box-sizing: border-box;
+}
+
+.ai-voice__pad.is-active {
+  border-style: solid;
+  border-color: #5a5a5a;
+  background-color: var(--surface-elevated);
+}
+
+.ai-voice__pad-text {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.ai-voice__done {
+  display: block;
+  margin-top: var(--space-sm);
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}

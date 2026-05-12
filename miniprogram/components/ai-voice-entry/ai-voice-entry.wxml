@@ -1,0 +1,12 @@
+<view class="ai-voice" wx:if="{{voice}}">
+  <text class="ai-voice__hint">{{voice.hint}}</text>
+  <view
+    class="ai-voice__pad {{holding ? 'is-active' : ''}}"
+    catchtouchstart="onTouchStart"
+    catchtouchend="onTouchEnd"
+    catchtouchcancel="onTouchEnd"
+  >
+    <text class="ai-voice__pad-text">{{holding ? voice.holdingLabel : voice.holdLabel}}</text>
+  </view>
+  <text class="ai-voice__done" wx:if="{{done}}">{{voice.doneHint}}</text>
+</view>

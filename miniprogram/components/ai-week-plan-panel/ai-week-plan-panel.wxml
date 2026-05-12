@@ -1,0 +1,17 @@
+<view class="ai-week" wx:if="{{weekPlan}}">
+  <text class="ai-week__range">{{weekPlan.rangeLine}}</text>
+  <view class="ai-week__body">
+    <view
+      class="ai-week__row"
+      wx:for="{{weekPlan.days}}"
+      wx:key="id"
+    >
+      <view class="ai-week__wd">{{item.weekday}}</view>
+      <view class="ai-week__core">
+        <text class="ai-week__focus">{{item.focus}}</text>
+        <text class="ai-week__detail">{{item.detail}}</text>
+      </view>
+      <view class="ai-week__tag ai-week__tag--{{item.loadKey}}">{{item.loadTag}}</view>
+    </view>
+  </view>
+</view>

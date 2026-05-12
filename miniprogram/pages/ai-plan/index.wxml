@@ -1,24 +1,50 @@
 <!--
-  AI 计划 Tab：标题与入口列表来自 aiPlanPage（mock）。
+  AI 计划 Tab：上传 → 分析 → 周计划；数据为 mock，模块拆组件。
 -->
 <view class="u-tab-page page--ai-plan">
   <scroll-view class="u-tab-page__scroll" scroll-y>
-    <view class="u-px-page u-py-lg u-stack-md">
-      <view>
-        <ui-title variant="page" text="{{aiPage.title}}" />
-        <view class="u-subtitle">{{aiPage.subtitle}}</view>
+    <view class="u-px-page u-py-lg">
+      <view class="ai-plan__intro u-mb-lg">
+        <ui-title variant="page" text="{{aiPlan.title}}" />
+        <view class="u-subtitle ai-plan__subtitle">{{aiPlan.subtitle}}</view>
+        <text class="ai-plan__demo">{{aiPlan.demoNotice}}</text>
       </view>
 
-      <ui-action-entry
-        wx:for="{{aiPage.entries}}"
-        wx:key="id"
-        title="{{item.title}}"
-        description="{{item.description}}"
-      />
+      <ui-section showHeader="{{true}}">
+        <view slot="header">
+          <ui-title variant="section" text="{{aiPlan.upload.sectionTitle}}" />
+        </view>
+        <ui-card padded="{{true}}" soft="{{true}}">
+          <ai-upload-panel upload="{{aiPlan.upload}}" bind:changed="onUploadChanged" />
+        </ui-card>
+      </ui-section>
 
-      <view class="u-mt-sm">
-        <view class="u-btn u-btn--primary u-btn--block">{{aiPage.primaryCta}}</view>
-      </view>
+      <ui-section showHeader="{{true}}">
+        <view slot="header">
+          <ui-title variant="section" text="{{aiPlan.voice.sectionTitle}}" />
+        </view>
+        <ui-card padded="{{true}}" soft="{{true}}">
+          <ai-voice-entry voice="{{aiPlan.voice}}" bind:mockdone="onVoiceMockDone" />
+        </ui-card>
+      </ui-section>
+
+      <ui-section showHeader="{{true}}">
+        <view slot="header">
+          <ui-title variant="section" text="{{aiPlan.analysis.sectionTitle}}" />
+        </view>
+        <ui-card padded="{{true}}" soft="{{true}}">
+          <ai-analysis-panel analysis="{{aiPlan.analysis}}" />
+        </ui-card>
+      </ui-section>
+
+      <ui-section showHeader="{{true}}">
+        <view slot="header">
+          <ui-title variant="section" text="{{aiPlan.weekPlan.sectionTitle}}" />
+        </view>
+        <ui-card padded="{{true}}" soft="{{true}}">
+          <ai-week-plan-panel weekPlan="{{aiPlan.weekPlan}}" />
+        </ui-card>
+      </ui-section>
 
       <view class="u-py-lg" />
     </view>

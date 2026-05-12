@@ -2,6 +2,11 @@
   "navigationBarTitleText": "AI计划",
   "usingComponents": {
     "ui-title": "../../components/ui-title/ui-title",
-    "ui-action-entry": "../../components/ui-action-entry/ui-action-entry"
+    "ui-section": "../../components/ui-section/ui-section",
+    "ui-card": "../../components/ui-card/ui-card",
+    "ai-upload-panel": "../../components/ai-upload-panel/ai-upload-panel",
+    "ai-voice-entry": "../../components/ai-voice-entry/ai-voice-entry",
+    "ai-analysis-panel": "../../components/ai-analysis-panel/ai-analysis-panel",
+    "ai-week-plan-panel": "../../components/ai-week-plan-panel/ai-week-plan-panel"
   }
 }

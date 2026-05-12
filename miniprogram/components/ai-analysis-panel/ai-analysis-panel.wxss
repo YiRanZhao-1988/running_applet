@@ -1,0 +1,79 @@
+.ai-an__ctx {
+  display: block;
+  font-size: 24rpx;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-md);
+}
+
+.ai-an__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.ai-an__item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.ai-an__bullet {
+  width: 8rpx;
+  height: 8rpx;
+  margin-top: 16rpx;
+  border-radius: 50%;
+  background-color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.ai-an__text {
+  flex: 1;
+  font-size: 28rpx;
+  line-height: 1.65;
+  color: var(--text-primary);
+}
+
+.ai-an__metrics {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.ai-an__metric {
+  width: calc(50% - 12rpx);
+  box-sizing: border-box;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-control);
+  border: 1rpx solid var(--border-soft);
+  background-color: var(--surface);
+}
+
+.ai-an__metric-label {
+  display: block;
+  font-size: 22rpx;
+  color: var(--text-tertiary);
+  margin-bottom: 4rpx;
+}
+
+.ai-an__metric-value {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.ai-an__caution {
+  padding: var(--space-md);
+  border-radius: var(--radius-control);
+  border: 1rpx solid var(--border-soft);
+  background-color: var(--surface-elevated);
+}
+
+.ai-an__caution-text {
+  font-size: 24rpx;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
