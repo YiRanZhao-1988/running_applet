@@ -1,4 +1,47 @@
-<!-- 登录页骨架 -->
-<view class="page page--login">
-  <view class="page__inner" />
+<page-meta root-background-color="#1a1c20">
+  <navigation-bar
+    title=""
+    front-color="#ffffff"
+    background-color="#1a1c20"
+  />
+</page-meta>
+<view class="login" style="padding-top: {{statusBarHeightPx}}px;">
+  <view class="login__bg" aria-hidden="true">
+    <view class="login__bg-layer login__bg-layer--dawn"></view>
+    <view class="login__bg-layer login__bg-layer--night"></view>
+    <view class="login__bg-layer login__bg-layer--road"></view>
+    <view class="login__bg-veil"></view>
+  </view>
+
+  <view class="login__content">
+    <view class="login__center">
+      <view class="login__mark" aria-hidden="true">
+        <view class="login__mark-ring"></view>
+        <view class="login__mark-line"></view>
+      </view>
+      <view class="login__wordmark">
+        <text class="login__wordmark-line">{{brand.wordmarkLine1}}</text>
+        <text class="login__wordmark-line">{{brand.wordmarkLine2}}</text>
+      </view>
+      <text class="login__slogan">{{brand.slogan}}</text>
+    </view>
+
+    <view class="login__footer" style="padding-bottom: calc(48rpx + {{safeBottomPx}}px);">
+      <view class="login__quote">
+        <text
+          class="login__quote-text"
+          style="opacity: {{quoteOpacity}};"
+        >{{lines[lineIndex]}}</text>
+      </view>
+      <button
+        class="login__btn"
+        hover-class="login__btn--hover"
+        hover-stay-time="120"
+        disabled="{{loginBusy}}"
+        bindtap="onWxLogin"
+      >
+        微信一键登录
+      </button>
+    </view>
+  </view>
 </view>
