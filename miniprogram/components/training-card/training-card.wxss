@@ -1,0 +1,110 @@
+@import "../../styles/theme.wxss";
+
+.training-card {
+  border-radius: var(--radius-card);
+  background-color: var(--surface);
+  border: 1rpx solid var(--border-soft);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-xl) var(--space-lg);
+  box-sizing: border-box;
+}
+
+.training-card__header {
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-xl);
+}
+
+.training-card__header-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+.training-card__kicker {
+  font-size: 22rpx;
+  letter-spacing: 2rpx;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.training-card__type {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.training-card__badge {
+  flex-shrink: 0;
+  margin-left: var(--space-md);
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  border: 1rpx solid transparent;
+}
+
+.training-card__badge.is-neutral {
+  color: var(--text-secondary);
+  background-color: #f0f0f0;
+  border-color: var(--border-soft);
+}
+
+.training-card__badge.is-open {
+  color: var(--text-secondary);
+  background-color: var(--surface-elevated);
+  border-color: var(--border-soft);
+}
+
+.training-card__badge.is-done {
+  color: #f6f6f6;
+  background-color: #3a3a3a;
+  border-color: #3a3a3a;
+}
+
+.training-card__grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.training-card__metric {
+  width: 50%;
+  box-sizing: border-box;
+  padding-right: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.training-card__metric:nth-child(2n) {
+  padding-right: 0;
+  padding-left: var(--space-sm);
+}
+
+.training-card__metric--wide {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 0;
+  margin-top: var(--space-xs);
+}
+
+.training-card__label {
+  display: block;
+  font-size: 24rpx;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-xs);
+}
+
+.training-card__value {
+  display: block;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.5rpx;
+}
+
+.training-card__value--sub {
+  font-size: 30rpx;
+  font-weight: 500;
+}

@@ -1,0 +1,11 @@
+<view
+  class="ui-action-entry u-row {{elevated ? 'u-card u-card--pad-md' : 'ui-action-entry--plain'}} {{!elevated && !isLast ? 'ui-action-entry--bordered' : ''}}"
+  hover-class="ui-action-entry--hover"
+  hover-stay-time="80"
+>
+  <view class="ui-action-entry__main">
+    <text class="ui-action-entry__title">{{title}}</text>
+    <text wx:if="{{description}}" class="ui-action-entry__desc">{{description}}</text>
+  </view>
+  <text wx:if="{{showChevron}}" class="ui-action-entry__chev">›</text>
+</view>

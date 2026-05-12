@@ -1,0 +1,41 @@
+/**
+ * 标题层级：克制字号对比，避免营销感与大色块。
+ */
+
+.u-title {
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: 0.5rpx;
+}
+
+/* 页面内最大标题（如欢迎区主文案） */
+.u-title--page {
+  font-size: 44rpx;
+  line-height: 1.25;
+}
+
+/* 区块标题（卡片外） */
+.u-title--section {
+  font-size: 32rpx;
+  line-height: 1.3;
+}
+
+/* 卡片内小标题 */
+.u-title--card {
+  font-size: 30rpx;
+  line-height: 1.35;
+}
+
+/* 辅助说明行 */
+.u-subtitle {
+  margin-top: var(--space-xs);
+  font-size: 26rpx;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+/* 栏目标签（如统计项名称） */
+.u-label {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}

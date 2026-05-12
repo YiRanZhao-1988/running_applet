@@ -1,0 +1,17 @@
+@import "../../styles/theme.wxss";
+
+.motivation-banner {
+  border-radius: var(--radius-card);
+  background-color: var(--surface);
+  border: 1rpx solid var(--border-soft);
+  padding: var(--space-lg) var(--space-lg);
+  box-sizing: border-box;
+}
+
+.motivation-banner__text {
+  display: block;
+  font-size: 28rpx;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  letter-spacing: 0.5rpx;
+}

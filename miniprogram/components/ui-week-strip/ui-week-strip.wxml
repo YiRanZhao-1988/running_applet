@@ -1,0 +1,9 @@
+<!-- 自包含卡片，避免页面再包一层导致视觉过重 -->
+<view class="ui-week-strip u-card u-card--pad-md">
+  <view class="ui-week-strip__row">
+    <view class="ui-week-strip__cell" wx:for="{{dowLabels}}" wx:key="*this">
+      <text class="ui-week-strip__dow">{{item}}</text>
+      <view class="ui-week-strip__mark" />
+    </view>
+  </view>
+</view>

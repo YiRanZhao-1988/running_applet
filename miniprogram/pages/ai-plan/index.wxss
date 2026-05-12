@@ -1,0 +1,6 @@
+/**
+ * AI 计划页：布局主要依赖全局 spacing / button；此处仅保留页面作用域钩子。
+ */
+.page--ai-plan {
+  box-sizing: border-box;
+}

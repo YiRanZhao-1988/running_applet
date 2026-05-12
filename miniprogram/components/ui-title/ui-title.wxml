@@ -1,0 +1,6 @@
+<view>
+  <view wx:if="{{text}}" class="u-title u-title--{{variant}}">{{text}}</view>
+  <view wx:else class="u-title u-title--{{variant}}">
+    <slot />
+  </view>
+</view>

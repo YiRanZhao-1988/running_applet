@@ -1,0 +1,4 @@
+<!-- 登录页骨架 -->
+<view class="page page--login">
+  <view class="page__inner" />
+</view>

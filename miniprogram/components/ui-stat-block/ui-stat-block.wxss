@@ -1,0 +1,16 @@
+@import "../../styles/theme.wxss";
+
+.ui-stat-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 120rpx;
+}
+
+.ui-stat-block__value {
+  margin-top: var(--space-sm);
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.5rpx;
+}

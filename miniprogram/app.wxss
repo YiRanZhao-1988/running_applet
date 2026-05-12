@@ -1,0 +1,19 @@
+/**
+ * 全局样式入口：引入设计令牌，统一深浅灰白背景与留白节奏。
+ * 页面级样式请只写布局/间距，色彩尽量使用 theme.wxss 中的变量。
+ */
+@import "./styles/theme.wxss";
+@import "./styles/spacing.wxss";
+@import "./styles/card.wxss";
+@import "./styles/section.wxss";
+@import "./styles/title.wxss";
+@import "./styles/button.wxss";
+
+page {
+  height: 100%;
+  background-color: var(--page-bg);
+  color: var(--text-primary);
+  font-size: 28rpx;
+  line-height: 1.6;
+  box-sizing: border-box;
+}

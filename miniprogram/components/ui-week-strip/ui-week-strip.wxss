@@ -1,0 +1,29 @@
+@import "../../styles/theme.wxss";
+
+.ui-week-strip__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.ui-week-strip__cell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.ui-week-strip__dow {
+  font-size: 22rpx;
+  color: var(--text-secondary);
+}
+
+.ui-week-strip__mark {
+  margin-top: var(--space-sm);
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: var(--radius-pill);
+  background-color: var(--divider);
+}

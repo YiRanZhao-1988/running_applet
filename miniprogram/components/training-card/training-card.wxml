@@ -1,0 +1,30 @@
+<view class="training-card" wx:if="{{session}}">
+  <view class="training-card__header u-row">
+    <view class="training-card__header-main">
+      <text class="training-card__kicker">今日课表</text>
+      <text class="training-card__type">{{session.typeLabel}}</text>
+    </view>
+    <view
+      class="training-card__badge {{session.typeLabel === '休息' ? 'is-neutral' : (session.completed ? 'is-done' : 'is-open')}}"
+    >
+      <text wx:if="{{session.typeLabel === '休息'}}">休息日</text>
+      <text wx:elif="{{session.completed}}">已完成</text>
+      <text wx:else>待完成</text>
+    </view>
+  </view>
+
+  <view class="training-card__grid">
+    <view class="training-card__metric">
+      <text class="training-card__label">距离</text>
+      <text class="training-card__value">{{session.distanceLabel}}</text>
+    </view>
+    <view class="training-card__metric">
+      <text class="training-card__label">配速</text>
+      <text class="training-card__value">{{session.paceLabel}}</text>
+    </view>
+    <view class="training-card__metric training-card__metric--wide">
+      <text class="training-card__label">心率目标</text>
+      <text class="training-card__value training-card__value--sub">{{session.hrTargetLabel}}</text>
+    </view>
+  </view>
+</view>

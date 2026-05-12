@@ -1,0 +1,42 @@
+/**
+ * 卡片：白底、细边框、统一圆角；不做炫光渐变与强阴影。
+ */
+
+.u-card {
+  background-color: var(--surface);
+  border-radius: var(--radius-card);
+  border: 1rpx solid var(--border-soft);
+  box-sizing: border-box;
+}
+
+/* 极弱阴影版本（可选，用于需要轻微抬升的区块） */
+.u-card--soft {
+  box-shadow: var(--shadow-card);
+}
+
+/* 内边距档位 */
+.u-card--pad-md {
+  padding: var(--space-md);
+}
+
+.u-card--pad-lg {
+  padding: var(--space-lg);
+}
+
+/**
+ * 占位骨架条（非数据）：用于今日课程等未接入业务前的留白结构。
+ */
+.u-ph-bar {
+  height: 22rpx;
+  border-radius: 8rpx;
+  background-color: var(--divider);
+  width: 100%;
+}
+
+.u-ph-bar--med {
+  width: 58%;
+}
+
+.u-ph-bar--short {
+  width: 36%;
+}

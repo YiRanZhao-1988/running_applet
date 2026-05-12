@@ -1,0 +1,3 @@
+<view class="motivation-banner">
+  <text wx:if="{{currentLine}}" class="motivation-banner__text">{{currentLine}}</text>
+</view>

@@ -1,0 +1,141 @@
+@import "../../styles/theme.wxss";
+
+.todo-card {
+  box-shadow: var(--shadow-card);
+  margin-bottom: var(--space-md);
+}
+
+.todo-card--done {
+  opacity: 0.92;
+}
+
+@keyframes todoPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(0.985);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.todo-card--pulse {
+  animation: todoPulse 0.42s ease-out;
+}
+
+.todo-card__head {
+  align-items: flex-start;
+}
+
+.todo-card__check-hit {
+  padding: var(--space-xs) var(--space-sm) var(--space-xs) 0;
+  margin-right: var(--space-sm);
+}
+
+.todo-card__check-hit--hover {
+  opacity: 0.86;
+}
+
+.todo-card__check {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 12rpx;
+  border: 2rpx solid var(--border-soft);
+  background-color: var(--surface-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.todo-card__check--on {
+  background-color: #3a3a3a;
+  border-color: #3a3a3a;
+}
+
+.todo-card__tick {
+  font-size: 26rpx;
+  line-height: 1;
+  color: #f6f6f6;
+  font-weight: 600;
+}
+
+.todo-card__title-block {
+  flex: 1;
+  min-width: 0;
+}
+
+.todo-card__title-row {
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.todo-card__name {
+  flex: 1;
+  min-width: 0;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.todo-card__fb {
+  flex-shrink: 0;
+  font-size: 22rpx;
+  color: var(--text-tertiary);
+  padding: 6rpx 12rpx;
+  border-radius: 999rpx;
+  border: 1rpx solid var(--border-soft);
+  background-color: #f6f6f6;
+}
+
+.todo-card__meta-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.todo-card__meta {
+  width: 50%;
+  box-sizing: border-box;
+  padding-right: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.todo-card__meta:nth-child(2n) {
+  padding-right: 0;
+  padding-left: var(--space-sm);
+}
+
+.todo-card__mk {
+  display: block;
+  font-size: 22rpx;
+  color: var(--text-tertiary);
+  margin-bottom: 6rpx;
+}
+
+.todo-card__mv {
+  display: block;
+  font-size: 28rpx;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.todo-card__note {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1rpx solid var(--divider);
+}
+
+.todo-card__note-text {
+  font-size: 26rpx;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}

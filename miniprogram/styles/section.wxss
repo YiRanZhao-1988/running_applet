@@ -1,0 +1,19 @@
+/**
+ * 区块：纵向分组与标题区节奏，强调任务流而非社交展示。
+ */
+
+.u-section {
+  margin-bottom: var(--space-xl);
+}
+
+.u-section:last-child {
+  margin-bottom: 0;
+}
+
+.u-section__header {
+  margin-bottom: var(--space-md);
+}
+
+.u-section__body {
+  /* 由子组件（卡片、列表等）自行管理内部间距 */
+}

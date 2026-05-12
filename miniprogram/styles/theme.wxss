@@ -1,0 +1,39 @@
+/**
+ * 设计令牌（Design Tokens）
+ * 原则：极简、低干扰、无高饱和色；以灰白为主、留白充足。
+ * 在 page 上定义 CSS 变量，子节点可继承使用。
+ */
+page {
+  /* 页面与大背景 */
+  --page-bg: #f4f4f5;
+  --surface: #ffffff;
+  --surface-elevated: #fafafa;
+
+  /* 文本 */
+  --text-primary: #333333;
+  --text-secondary: #8a8a8a;
+  --text-tertiary: #b5b5b5;
+
+  /* 线条与分割 */
+  --border-soft: #e7e7e7;
+  --divider: #eeeeee;
+
+  /* 间距体系（统一节奏：8 的倍数，便于对齐与留白） */
+  --spacing-page: 32rpx;
+  --spacing-block: 24rpx;
+  --spacing-tight: 16rpx;
+  --space-xs: 8rpx;
+  --space-sm: 16rpx;
+  --space-md: 24rpx;
+  --space-lg: 32rpx;
+  --space-xl: 48rpx;
+  --space-xxl: 64rpx;
+
+  /* 卡片与控件圆角（统一圆角，避免花哨造型） */
+  --radius-card: 20rpx;
+  --radius-control: 14rpx;
+  --radius-pill: 999rpx;
+
+  /* 低对比阴影：仅极弱分层，无渐变 */
+  --shadow-card: 0 4rpx 20rpx rgba(0, 0, 0, 0.04);
+}

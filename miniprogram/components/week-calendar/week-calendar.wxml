@@ -1,0 +1,39 @@
+<view class="week-calendar">
+  <view class="week-calendar__nav u-row">
+    <view
+      class="week-calendar__arrow"
+      hover-class="week-calendar__arrow--hover"
+      hover-stay-time="60"
+      bindtap="onPrevWeek"
+    >
+      ‹
+    </view>
+    <text class="week-calendar__range">{{weekRangeText}}</text>
+    <view
+      class="week-calendar__arrow"
+      hover-class="week-calendar__arrow--hover"
+      hover-stay-time="60"
+      bindtap="onNextWeek"
+    >
+      ›
+    </view>
+  </view>
+
+  <view class="week-calendar__row">
+    <view
+      wx:for="{{days}}"
+      wx:key="dateKey"
+      class="week-calendar__cell {{item.isToday ? 'week-calendar__cell--today' : ''}}"
+      hover-class="week-calendar__cell--hover"
+      hover-stay-time="70"
+      data-date-key="{{item.dateKey}}"
+      bindtap="onDayTap"
+    >
+      <text class="week-calendar__dow">{{item.labelDow}}</text>
+      <view class="week-calendar__icon week-calendar__icon--{{item.displayKind}}">
+        <text>{{item.glyph}}</text>
+      </view>
+      <text class="week-calendar__date">{{item.labelDate}}</text>
+    </view>
+  </view>
+</view>

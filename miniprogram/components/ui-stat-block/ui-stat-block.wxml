@@ -1,0 +1,4 @@
+<view class="ui-stat-block u-card u-card--pad-md ext-class">
+  <text class="u-label">{{label}}</text>
+  <text class="ui-stat-block__value">{{value}}</text>
+</view>

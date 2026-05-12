@@ -1,0 +1,4 @@
+<!-- 根节点挂全局卡片类，具体视觉在 styles/card.wxss 维护 -->
+<view class="u-card {{padded ? 'u-card--pad-md' : ''}} {{soft ? 'u-card--soft' : ''}}">
+  <slot />
+</view>

@@ -1,0 +1,106 @@
+@import "../../styles/theme.wxss";
+
+.week-calendar {
+  border-radius: var(--radius-card);
+  background-color: var(--surface);
+  border: 1rpx solid var(--border-soft);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-lg) var(--space-md);
+  box-sizing: border-box;
+}
+
+.week-calendar__nav {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+  padding: 0 var(--space-xs);
+}
+
+.week-calendar__arrow {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 999rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  color: var(--text-secondary);
+  background-color: var(--surface-elevated);
+  border: 1rpx solid var(--border-soft);
+  line-height: 1;
+}
+
+.week-calendar__range {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  letter-spacing: 0.5rpx;
+}
+
+.week-calendar__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.week-calendar__cell {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-sm) 0 var(--space-xs);
+  border-radius: var(--radius-control);
+}
+
+.week-calendar__cell--today {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.week-calendar__dow {
+  font-size: 22rpx;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-sm);
+}
+
+.week-calendar__icon {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 999rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  background-color: var(--surface-elevated);
+  border: 1rpx solid var(--border-soft);
+  box-sizing: border-box;
+  margin-bottom: var(--space-sm);
+}
+
+.week-calendar__icon--rest {
+  color: var(--text-secondary);
+  background-color: #f0f0f0;
+}
+
+.week-calendar__icon--done {
+  color: #f6f6f6;
+  background-color: #3a3a3a;
+  border-color: #3a3a3a;
+}
+
+.week-calendar__icon--interval,
+.week-calendar__icon--long_run {
+  border-style: dashed;
+}
+
+.week-calendar__date {
+  font-size: 20rpx;
+  color: var(--text-tertiary);
+}
+
+.week-calendar__arrow--hover,
+.week-calendar__cell--hover {
+  opacity: 0.88;
+}

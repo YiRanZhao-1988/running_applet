@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/training/index",
+    "pages/ai-plan/index",
+    "pages/profile/index",
+    "pages/day-detail/index",
+    "pages/login/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#F4F4F5",
+    "navigationBarTitleText": "训练",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F4F4F5",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#8A8A8A",
+    "selectedColor": "#333333",
+    "backgroundColor": "#FAFAFA",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/training/index",
+        "text": "训练",
+        "iconPath": "assets/tabbar/tab-normal.png",
+        "selectedIconPath": "assets/tabbar/tab-active.png"
+      },
+      {
+        "pagePath": "pages/ai-plan/index",
+        "text": "AI计划",
+        "iconPath": "assets/tabbar/tab-normal.png",
+        "selectedIconPath": "assets/tabbar/tab-active.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "assets/tabbar/tab-normal.png",
+        "selectedIconPath": "assets/tabbar/tab-active.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button"
+  },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

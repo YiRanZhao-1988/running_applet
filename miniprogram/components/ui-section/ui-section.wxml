@@ -1,0 +1,8 @@
+<view class="u-section">
+  <view class="u-section__header" wx:if="{{showHeader}}">
+    <slot name="header" />
+  </view>
+  <view class="u-section__body">
+    <slot />
+  </view>
+</view>

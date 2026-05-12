@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "AI计划",
+  "usingComponents": {
+    "ui-title": "../../components/ui-title/ui-title",
+    "ui-action-entry": "../../components/ui-action-entry/ui-action-entry"
+  }
+}

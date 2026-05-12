@@ -1,0 +1,46 @@
+@import "../../styles/theme.wxss";
+
+.ui-action-entry {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ui-action-entry__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.ui-action-entry__title {
+  font-size: 30rpx;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.ui-action-entry__desc {
+  display: block;
+  margin-top: var(--space-xs);
+  font-size: 24rpx;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.ui-action-entry__chev {
+  margin-left: var(--space-md);
+  font-size: 36rpx;
+  line-height: 1;
+  color: var(--text-tertiary);
+  font-weight: 300;
+}
+
+/* 嵌入卡片内的扁平行：由 isLast 控制末行是否需要分割线 */
+.ui-action-entry--plain {
+  padding: var(--space-md) 0;
+}
+
+.ui-action-entry--bordered {
+  border-bottom: 1rpx solid var(--divider);
+}
+
+.ui-action-entry--hover {
+  opacity: 0.88;
+}

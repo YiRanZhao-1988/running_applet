@@ -1,0 +1,45 @@
+<view
+  class="todo-card u-card u-card--pad-md {{todo.done ? 'todo-card--done' : ''}} {{todo.animating ? 'todo-card--pulse' : ''}}"
+>
+  <view class="todo-card__head u-row">
+    <view
+      class="todo-card__check-hit"
+      catchtap="onToggleTap"
+      hover-class="todo-card__check-hit--hover"
+      hover-stay-time="60"
+    >
+      <view class="todo-card__check {{todo.done ? 'todo-card__check--on' : ''}}">
+        <text wx:if="{{todo.done}}" class="todo-card__tick">✓</text>
+      </view>
+    </view>
+
+    <view class="todo-card__title-block">
+      <view class="todo-card__title-row u-row">
+        <text class="todo-card__name">{{todo.name}}</text>
+        <text wx:if="{{todo.feedbackLabel}}" class="todo-card__fb">{{todo.feedbackLabel}}</text>
+      </view>
+      <view class="todo-card__meta-grid">
+        <view class="todo-card__meta">
+          <text class="todo-card__mk">距离</text>
+          <text class="todo-card__mv">{{todo.distanceLabel}}</text>
+        </view>
+        <view class="todo-card__meta">
+          <text class="todo-card__mk">配速</text>
+          <text class="todo-card__mv">{{todo.paceLabel}}</text>
+        </view>
+        <view class="todo-card__meta">
+          <text class="todo-card__mk">心率</text>
+          <text class="todo-card__mv">{{todo.hrLabel}}</text>
+        </view>
+        <view class="todo-card__meta">
+          <text class="todo-card__mk">时长</text>
+          <text class="todo-card__mv">{{todo.durationLabel}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="todo-card__note" wx:if="{{todo.note}}">
+    <text class="todo-card__note-text">{{todo.note}}</text>
+  </view>
+</view>

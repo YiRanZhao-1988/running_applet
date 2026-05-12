@@ -1,0 +1,38 @@
+/**
+ * 按钮骨架：中性灰/深灰填充，不做高饱和主色与复杂渐变。
+ * 交互与埋点后续再接；此处仅占位样式。
+ */
+
+.u-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 88rpx;
+  padding: 0 var(--space-lg);
+  border-radius: var(--radius-control);
+  font-size: 28rpx;
+  font-weight: 500;
+  border: 1rpx solid var(--border-soft);
+  background-color: var(--surface);
+  color: var(--text-primary);
+}
+
+/* 主操作：深石墨色，保持克制 */
+.u-btn--primary {
+  background-color: #3a3a3a;
+  color: #f6f6f6;
+  border-color: #3a3a3a;
+}
+
+/* 弱按钮：浅底 */
+.u-btn--muted {
+  background-color: var(--surface-elevated);
+  color: var(--text-primary);
+  border-color: var(--border-soft);
+}
+
+.u-btn--block {
+  width: 100%;
+}

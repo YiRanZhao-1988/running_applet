@@ -1,0 +1,57 @@
+<view class="u-tab-page page--day-detail">
+  <scroll-view class="u-tab-page__scroll" scroll-y>
+    <view class="u-px-page day-detail" wx:if="{{pageMeta}}">
+      <view class="day-detail__hero">
+        <text class="day-detail__kicker">Session</text>
+        <text class="day-detail__date-line">{{pageMeta.dateHeader}}</text>
+        <text class="day-detail__type">{{pageMeta.dayTypeLabel}}</text>
+      </view>
+
+      <view class="day-detail__section-head">
+        <text class="day-detail__section-title">训练内容</text>
+        <text class="day-detail__section-sub">逐项完成，数据仅保存在本机</text>
+      </view>
+
+      <view class="day-detail__list">
+        <todo-training-card
+          wx:for="{{todos}}"
+          wx:key="id"
+          todo="{{item}}"
+          bind:toggle="onTodoToggle"
+        />
+      </view>
+
+      <view class="u-py-xl" />
+    </view>
+
+    <view class="u-px-page day-detail day-detail--empty u-py-xl" wx:else>
+      <text class="day-detail__empty">未携带有效日期参数。请从训练页周历进入。</text>
+    </view>
+  </scroll-view>
+
+  <!-- 训练反馈：轻量遮罩 + 列表选项（无夸张动效） -->
+  <view class="fb-mask" wx:if="{{showFeedback}}" catchtap="onCloseFeedback">
+    <view class="fb-sheet" catchtap="onSheetTouch">
+      <text class="fb-title">训练反馈</text>
+      <text class="fb-desc">这一刻的身体感受，用于你自己回顾节奏。</text>
+
+      <view class="fb-options">
+        <view
+          wx:for="{{feedbackOptions}}"
+          wx:key="key"
+          class="fb-option"
+          data-feedback-key="{{item.key}}"
+          hover-class="fb-option--hover"
+          hover-stay-time="60"
+          bindtap="onFeedbackSelect"
+        >
+          <text class="fb-option__text">{{item.label}}</text>
+        </view>
+      </view>
+
+      <view class="fb-later" hover-class="fb-later--hover" hover-stay-time="60" bindtap="onCloseFeedback">
+        <text class="fb-later__text">稍后再说</text>
+      </view>
+    </view>
+  </view>
+</view>

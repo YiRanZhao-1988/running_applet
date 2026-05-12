@@ -1,0 +1,83 @@
+/**
+ * 间距工具类：与 theme 中的 --space-* 保持一致，页面仅组合 class，不写魔法数字。
+ */
+
+/* 页面水平内边距（与 tab 内容区对齐） */
+.u-px-page {
+  padding-left: var(--spacing-page);
+  padding-right: var(--spacing-page);
+}
+
+.u-py-lg {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+}
+
+.u-py-xl {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+.u-mt-sm {
+  margin-top: var(--space-sm);
+}
+
+.u-mt-md {
+  margin-top: var(--space-md);
+}
+
+.u-mt-lg {
+  margin-top: var(--space-lg);
+}
+
+.u-mb-md {
+  margin-bottom: var(--space-md);
+}
+
+.u-mb-lg {
+  margin-bottom: var(--space-lg);
+}
+
+/* 垂直堆叠：任意直接子节点之间的统一间距（兼容自定义组件标签） */
+.u-stack-md > * + * {
+  margin-top: var(--space-md);
+}
+
+.u-stack-sm > * + * {
+  margin-top: var(--space-sm);
+}
+
+/* Flex 行内统一间距 */
+.u-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.u-row-gap-md {
+  gap: var(--space-md);
+}
+
+.u-row-gap-sm {
+  gap: var(--space-sm);
+}
+
+/* 可滚动页面容器高度（由页面根节点配合使用） */
+.u-scroll-fill {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Tab 页：避免 scroll-view 在底部导航场景下高度塌陷 */
+.u-tab-page {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.u-tab-page__scroll {
+  flex: 1;
+  height: 0;
+  box-sizing: border-box;
+}

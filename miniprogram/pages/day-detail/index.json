@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "详情",
+  "usingComponents": {
+    "todo-training-card": "../../components/todo-training-card/todo-training-card"
+  }
+}

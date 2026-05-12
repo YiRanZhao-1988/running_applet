@@ -1,0 +1,26 @@
+/**
+ * 我的页：头像与账号区的轻量布局，其余使用通用卡片与列表入口样式。
+ */
+
+.page--profile {
+  box-sizing: border-box;
+}
+
+.profile-header__avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: var(--radius-pill);
+  background-color: var(--divider);
+  border: 1rpx solid var(--border-soft);
+  flex-shrink: 0;
+}
+
+.profile-header__meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-metrics__cell {
+  flex: 1;
+  min-width: 0;
+}

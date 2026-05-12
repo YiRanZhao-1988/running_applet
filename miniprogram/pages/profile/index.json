@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "我的",
+  "usingComponents": {
+    "ui-card": "../../components/ui-card/ui-card",
+    "ui-section": "../../components/ui-section/ui-section",
+    "ui-title": "../../components/ui-title/ui-title",
+    "ui-action-entry": "../../components/ui-action-entry/ui-action-entry",
+    "ui-stat-block": "../../components/ui-stat-block/ui-stat-block"
+  }
+}
