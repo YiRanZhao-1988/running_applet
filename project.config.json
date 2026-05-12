@@ -1,5 +1,6 @@
 {
   "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
   "projectname": "27-running-applet",
   "description": "长期跑步训练计划管理（原生小程序）",
   "appid": "",

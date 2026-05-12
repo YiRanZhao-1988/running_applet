@@ -16,6 +16,7 @@ Page({
         profilePage: "profilePageModel",
         profileStats: "profileStatRows",
         profileSettingRows: "profileSettingRows",
+        cloudSyncHint: "cloudSyncHintLine",
       },
       actions: [],
     });

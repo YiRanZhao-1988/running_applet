@@ -20,6 +20,13 @@
   min-width: 0;
 }
 
+.profile-cloud-hint {
+  margin-top: var(--space-xs);
+  font-size: 22rpx;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+}
+
 .profile-metrics__cell {
   flex: 1;
   min-width: 0;

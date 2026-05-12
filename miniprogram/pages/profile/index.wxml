@@ -10,6 +10,7 @@
           <view class="profile-header__meta">
             <ui-title variant="card" text="{{profilePage.user.title}}" />
             <view class="u-subtitle">{{profilePage.user.subtitle}}</view>
+            <view class="profile-cloud-hint">{{cloudSyncHint}}</view>
           </view>
         </view>
       </ui-card>

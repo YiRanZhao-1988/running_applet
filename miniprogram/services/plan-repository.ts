@@ -1,5 +1,5 @@
 /**
- * 计划与日志的本地持久化。后期可在此替换为 wx.cloud / HTTP，而保持 store 接口稳定。
+ * 计划与日志的本地持久化。云端读写请统一使用 `services/cloud/` 下模块，勿在页面直接调用数据库。
  */
 import type { Plan, TrainingLog, TrainingPersistedSnapshot } from "../types/domain";
 

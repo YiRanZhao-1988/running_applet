@@ -22,6 +22,7 @@ import { FEEDBACK_LABELS, FEEDBACK_OPTIONS } from "../mock/feedback-options";
 import { AI_PLAN_PAGE } from "../mock/ai-plan-page";
 import { PROFILE_PAGE } from "../mock/profile-page";
 import { DAY_DETAIL_PAGE_COPY } from "../mock/day-detail-copy";
+import { isCloudEnabled } from "../services/cloud/cloud-init";
 
 function newLogId(): string {
   return `log_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
@@ -37,6 +38,11 @@ export class TrainingStore {
   pulseItemId: string | null = null;
   feedbackModalOpen = false;
   feedbackTargetItemId: string | null = null;
+  /** 与本地快照 savedAt 对齐，用于与云端 updatedAt 比较 */
+  lastLocalPersistedAt = 0;
+  /** 云同步 UI：idle | pulling | pushing | error */
+  cloudSyncPhase: "idle" | "pulling" | "pushing" | "error" = "idle";
+  cloudLastError: string | null = null;
 
   constructor() {
     makeAutoObservable(this);
@@ -68,6 +74,24 @@ export class TrainingStore {
 
   get profilePageModel() {
     return PROFILE_PAGE;
+  }
+
+  get cloudSyncHintLine() {
+    if (!isCloudEnabled()) {
+      return "数据仅保存在本机（未配置云环境）";
+    }
+    switch (this.cloudSyncPhase) {
+      case "pulling":
+        return "云同步：正在拉取…";
+      case "pushing":
+        return "云同步：正在上传…";
+      case "error":
+        return this.cloudLastError
+          ? `云同步失败：${this.cloudLastError}`
+          : "云同步失败";
+      default:
+        return "云同步：已就绪";
+    }
   }
 
   get feedbackOptionRows() {
@@ -157,13 +181,29 @@ export class TrainingStore {
     return !!findDayByDateKey(this.plan, k);
   }
 
+  setCloudSync(
+    phase: "idle" | "pulling" | "pushing" | "error",
+    message?: string | null,
+  ) {
+    runInAction(() => {
+      this.cloudSyncPhase = phase;
+      this.cloudLastError = message ?? null;
+    });
+  }
+
   replacePlanAndLogs(nextPlan: Plan, nextLogs: TrainingLog[]) {
     this.plan = observable(nextPlan) as unknown as Plan;
     this.logs = observable(nextLogs) as unknown as TrainingLog[];
   }
 
   persist() {
-    if (this.plan) savePersistedSnapshot(this.plan, this.logs);
+    if (this.plan) {
+      savePersistedSnapshot(this.plan, this.logs);
+      this.lastLocalPersistedAt = Date.now();
+      void import("../services/cloud/cloud-sync-push").then((m) =>
+        m.scheduleTrainingCloudPush(),
+      );
+    }
   }
 
   calendarWeekPrev() {

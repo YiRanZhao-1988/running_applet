@@ -1,6 +1,7 @@
 /**
  * 全局 MobX Store 入口：统一导出与本地初始化（后续可在此处挂接云同步）。
  */
+import { runInAction } from "mobx-miniprogram";
 import { createSeedPlan } from "../mock/seed-plan";
 import {
   loadPersistedSnapshot,
@@ -14,10 +15,16 @@ export { trainingStore } from "./training-store";
 export function initTrainingStore(): void {
   const snap = loadPersistedSnapshot();
   if (snap?.plan) {
-    trainingStore.replacePlanAndLogs(snap.plan, snap.logs ?? []);
+    runInAction(() => {
+      trainingStore.replacePlanAndLogs(snap.plan, snap.logs ?? []);
+      trainingStore.lastLocalPersistedAt = snap.savedAt ?? 0;
+    });
     return;
   }
   const seed = createSeedPlan();
-  trainingStore.replacePlanAndLogs(seed, []);
+  runInAction(() => {
+    trainingStore.replacePlanAndLogs(seed, []);
+    trainingStore.lastLocalPersistedAt = Date.now();
+  });
   savePersistedSnapshot(seed, []);
 }
